@@ -1,0 +1,12 @@
+# Blender MTL File: 'main.blend'
+# Material Count: 1
+
+newmtl aluminum
+Ns 851.425646
+Ka 0.830217 0.830217 0.830217
+Kd 0.800000 0.800000 0.800000
+Ks 0.531818 0.531818 0.531818
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3

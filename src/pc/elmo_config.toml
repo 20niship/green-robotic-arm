@@ -1,0 +1,52 @@
+
+[socket]
+port = 502
+ip = "192.168.101.30"
+
+[fsensor]
+devname= "/dev/ttyACM0"
+
+[[axis]]
+name = "a001"
+min_encoder_value = -244482.0
+max_encoder_value = 218395
+min_angle = 1.2
+max_angle = -1.5708
+joint_name = "j1"
+[[axis]]
+name = "a002"
+min_encoder_value = -176117
+max_encoder_value = 667796.0
+min_angle = 1.5708
+max_angle = -1.2
+joint_name = "j2"
+[[axis]]
+name = "a003"
+min_encoder_value = -179698
+max_encoder_value = 181345
+min_angle = -2.35619
+max_angle = 2.35619
+joint_name = "j0"
+[[axis]]
+name = "a004"
+min_encoder_value = -302724.0
+max_encoder_value = 80.0
+min_angle = 3.14159
+max_angle = -3.14159
+joint_name = "j6"
+[[axis]]
+name = "a005"
+min_encoder_value = -157144.0
+max_encoder_value = 73548.0
+min_angle = 2.35619
+max_angle = -2.35619
+joint_name = "j5"
+[[axis]]
+name = "a006"
+min_encoder_value = -112972.0
+max_encoder_value = 103484.0
+min_angle = 3.0
+max_angle = -3.0
+joint_name = "j4"
+
+
