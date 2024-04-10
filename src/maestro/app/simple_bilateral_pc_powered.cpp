@@ -1,14 +1,20 @@
+/**
+ * @file simple_bilateral_pc_powered.cpp
+ * @brief 2台のモータを接続し、そこでバイラテラルの動作を行う. PCとのModbus通信あり
+ *   Mobus通信のフォーマットは、communication_const.hppを参照
+ *   ※ 最新コードが見つからずに片方のフィードバックしか行っていないが、、、
+ */
 #include "common.hpp"
-#include <hr4c.hpp>
 #include <MMC_definitions.h>
+#include <hr4c.hpp>
 #include <iostream>
 #include <semaphore.h>
 
 TorControls control_a1, control_a2;
 
 int main(int argc, char* argv[]) {
-  float kp     = 0.01;
-  float kd     = 0.1;
+  float kp = 0.01;
+  float kd = 0.1;
   float kp_abs = 0.001;
   float kd_abs = 0.01;
 
@@ -110,7 +116,7 @@ void update() {
     int32_t tmp_pos = control_a1.get_pos();
     int32_t tmp_vel = control_a1.get_vel();
     int32_t tmp_tor = control_a1.get_tor_order();
-    int start_ref   = hr4c::eAx1;
+    int start_ref = hr4c::eAx1;
     send_n_to16bit<int32_t>(tmp_pos, mbus_write_in.regArr, start_ref + hr4c::eActualPos);
     send_n_to16bit<int32_t>(tmp_vel, mbus_write_in.regArr, start_ref + hr4c::eActualVel);
     send_n_to16bit<int32_t>(tmp_tor, mbus_write_in.regArr, start_ref + hr4c::eActualTor);

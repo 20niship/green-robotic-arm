@@ -18,16 +18,29 @@
 #include <MMC_definitions.h>
 #include <MMC_host_comm_API.h>
 
+#include "../../common/communication_const.hpp"
 #include "TorqueControl.hpp"
 #include "get_cmmc_exception_error_message.hpp"
-#include "../../common/communication_const.hpp"
 
+/**
+ * @beief Modbusサーバーの初期化と、Maestro自身の初期化を行う
+ */
 void MainInit();
+
+/**
+ * @brief メインループ
+ *  内部でメインループがあり、giTerminateがTrueになるまで回り続け、update()関数を呼び出す
+ */
 void StartMain();
+
 void MainClose();
+
+/**
+ * @brief シグナルハンドラ経由で強制的にプロセスを終了させる
+ */
 void TerminateApplication(int iSigNum);
 
-extern bool giTerminate;  // Flag to request program termination
+extern bool giTerminate;           // Flag to request program termination
 extern MMC_CONNECT_HNDL gConnHndl; // Connection Handle
 extern CMMCConnection cConn;
 extern CMMCHostComm cHost;
@@ -38,4 +51,3 @@ extern MMC_MODBUSREADHOLDINGREGISTERSTABLE_OUT mbus_read_out;
 void update();
 void terminateApp();
 void ModbusWrite_Received();
-

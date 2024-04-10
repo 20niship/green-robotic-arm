@@ -1,8 +1,12 @@
+/**
+ * @file simple_bilateral.cpp
+ * @brief 2台のモータを接続し、そこでバイラテラルの動作を行う
+ *   ※ 最新コードが見つからずに片方のフィードバックしか行っていないが、、、
+ */
 #include "common.hpp"
 #include "src/hr4c.hpp"
 #include <MMC_definitions.h>
 #include <iostream>
-#include "common.hpp"
 #include <semaphore.h>
 
 TorControls control_a1, control_a2;
@@ -86,6 +90,7 @@ void update() {
   static unsigned long nFrames = 0;
   nFrames++;
 
+  // フィードバック制御
   control_a2.update();
   auto pos = control_a2.get_pos();
   control_a1.set_target(pos);

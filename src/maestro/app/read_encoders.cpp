@@ -16,6 +16,9 @@ inline std::string int_to_str(int i) {
   return ss.str();
 }
 
+/**
+ * @brief 自動で接続されているモータを検索し、controlsに代入する
+ */
 void search_motors() {
   int i = 0;
   while(i < 20) {
@@ -84,10 +87,17 @@ terminate:
   return 1;
 }
 
+/**
+ * Ctrl+Cとかで終了したときに呼ばれる関数
+ */
 void terminateApp() {
   for(int i = 0; i < control_count; i++) controls[i].abort();
 }
 
+/**
+ * @brief StartMain()内で一定周期で呼び出される関数
+ * 実行周期は hr4c.cppのTIMER_CYCLEとSLEEP_TIMEに依存する（デフォルトで1kHz)
+ */
 void update() {
   if(giTerminate) return;
 
@@ -106,4 +116,6 @@ void update() {
   std::cout << std::endl;
 }
 
-void ModbusWrite_Received() { LOG_F(INFO, "ModbusWrite_Received"); }
+void ModbusWrite_Received() {
+  LOG_F(INFO, "ModbusWrite_Received");
+}
