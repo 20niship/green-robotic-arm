@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot name="my_robot">
+  <link name="base-yaw-cylinder">
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/base-1-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/base-2-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/base-2-2.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/base-3-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/base-3-2.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/link-link1-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/link-mover-1-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/link1-1-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/motor-main-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/motor-mount1-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/shoulder-gear-cover-1.fbx"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="link1-1-1">
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/link2-1-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/motor-asm-1 motor-main-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/motor-asm-1 motor-mount1-1.fbx"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="link2-1-1">
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/link2-1.fbx"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="link3-1-1">
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/hand-link-1-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/link7.fbx"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="link2-1">
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/link-stoppter-1-1.fbx"/>
+      </geometry>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/link3-1-1.fbx"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="base">
+    <visual>
+      <geometry>
+        <mesh size="0.1 0.1 0.1" filename="meshes/base-yaw-cylinder.fbx"/>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="base-yaw-cylinder" type="revolute">
+    <child link="base-yaw-cylinder"/>
+    <parent link="base"/>
+    <origin xyz="-0.7297096252441406 -0.9194068312644958 0.595062255859375" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="1.0"/>
+  </joint>
+  <joint name="link1-1-1" type="revolute">
+    <child link="link1-1-1"/>
+    <parent link="base-yaw-cylinder"/>
+    <origin xyz="19.64262580871582 1.7283129692077637 -12.55376148223877" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.00" upper="1.57" effort="0" velocity="1.0"/>
+  </joint>
+  <joint name="link2-1-1" type="revolute">
+    <child link="link2-1-1"/>
+    <parent link="link1-1-1"/>
+    <origin xyz="-1.9073486328125e-06 -0.1910400390625 12.015121459960938" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.2" upper="1.57" effort="0" velocity="1.0"/>
+  </joint>
+  <joint name="link3-1-1" type="revolute">
+    <child link="link3-1-1"/>
+    <parent link="link2-1-1"/>
+    <origin xyz="-0.0 0.0 0.0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-6.31" upper="0.50" effort="0" velocity="1.0"/>
+  </joint>
+  <joint name="link2-1" type="revolute">
+    <child link="link2-1"/>
+    <parent link="link3-1-1"/>
+    <origin xyz="0.6918506622314453 0.11756312847137451 9.53779125213623" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-7.2" upper="1.00" effort="0" velocity="1.0"/>
+  </joint>
+</robot>

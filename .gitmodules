@@ -1,0 +1,21 @@
+[submodule "src/maestro/GMAS-elmo-lib"]
+	path = src/maestro/GMAS-elmo-lib
+	url = git@github.com:20niship/GMAS-elmo-lib.git
+[submodule "src/maestro/external/cpptoml"]
+	path = src/maestro/external/cpptoml
+	url = https://github.com/skystrife/cpptoml.git
+[submodule "src/maestro/external/loguru"]
+	path = src/maestro/external/loguru
+	url = https://github.com/emilk/loguru.git
+[submodule "src/pc/hr4c/loguru"]
+	path = src/pc/hr4c/loguru
+	url = https://github.com/emilk/loguru.git
+[submodule "src/pc/hr4c/imgui"]
+	path = src/pc/hr4c/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "src/pc/hr4c/implot"]
+	path = src/pc/hr4c/implot
+	url = https://github.com/epezent/implot.git
+[submodule "src/pc/hr4c/IconFontCppHeaders"]
+	path = src/pc/hr4c/IconFontCppHeaders
+	url = https://github.com/juliettef/IconFontCppHeaders.git
